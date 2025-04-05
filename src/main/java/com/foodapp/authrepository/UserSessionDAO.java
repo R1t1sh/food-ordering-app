@@ -10,9 +10,9 @@ import com.foodapp.authmodels.UserSession;
 
 @Repository
 public interface UserSessionDAO extends JpaRepository<UserSession, Integer> {
-	
+
 	public Optional<UserSession> findByUserId(Integer userId);
-	
+
 	public Optional<UserSession> findByUUID(String uuid);
 
 }

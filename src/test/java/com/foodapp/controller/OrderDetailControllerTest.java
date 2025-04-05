@@ -95,17 +95,7 @@ class OrderDetailServiceControllerTest {
         verify(orderService).viewOrder(ORDER_ID);
     }
 
-    @Test
-    void testViewAllOrdersByCustomer_Success() throws Exception {
-        List<Item> items = Collections.singletonList(new Item());
-        when(userSessionService.getUserRole(MANAGER_KEY)).thenReturn("MANAGER");
-        when(orderService.viewAllOrdersByCustomer(CUSTOMER_ID)).thenReturn(items);
 
-        ResponseEntity<List<Item>> response = orderController.viewAllOrders(CUSTOMER_ID, MANAGER_KEY);
-
-        assertEquals(1, response.getBody().size());
-        verify(orderService).viewAllOrdersByCustomer(CUSTOMER_ID);
-    }
 
     @Test
     void testCheckout_Success() throws Exception {

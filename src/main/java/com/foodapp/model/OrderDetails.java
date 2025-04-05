@@ -34,7 +34,7 @@ public class OrderDetails {
 	private List<Item> items;
 
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
 	@JsonIgnore
 	private  Bill bill;
 

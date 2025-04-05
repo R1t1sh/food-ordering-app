@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class LogInModel {
-	
+
 	@Id
 	@NotNull
 	private Integer userId;

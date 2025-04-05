@@ -17,11 +17,11 @@ import lombok.ToString;
 @ToString
 @Entity
 public class UserSession {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
 	@Column(unique =  true)
 	private Integer userId;
 	private String UUID;
@@ -29,7 +29,7 @@ public class UserSession {
 	@Column(nullable = false)
 	private String role = "USER";
 
-	
+
 	public UserSession(Integer userId, String uuid, LocalDateTime localDateTime, String role) {
 		super();
 		this.userId = userId;
@@ -37,6 +37,6 @@ public class UserSession {
 		this.timeStamp = localDateTime;
 		this.role= this.role;
 	}
-	
+
 
 }

@@ -14,7 +14,7 @@ import com.foodapp.authservice.SignUpModelService;
 @RestController
 @RequestMapping("/auth")
 public class SignUpController {
-	
+
 	@Autowired
 	private SignUpModelService signUpService;
 
@@ -37,16 +37,16 @@ public class SignUpController {
 			return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
 		}
 	}
-	
-	
+
+
 	@PutMapping("/updateSignUp")
 	public ResponseEntity<SignUpModel> updateSignUpDetailsHandler(@RequestBody SignUpModel signUp, @RequestParam String key) throws AuthorizationException
 	{
 		SignUpModel newUpdatedSignUp = signUpService.updateSignUp(signUp,key);
-		
+
 		return new ResponseEntity<SignUpModel>(newUpdatedSignUp,HttpStatus.ACCEPTED);
-		
-	
+
+
 	}
 
 }

@@ -26,7 +26,7 @@ class RestaurantServiceTest {
     private RestaurantDAO restaurantDAO;
 
     @Mock
-    private AddressDAO addressDAO; // ✅ Mocking AddressDAO to prevent NullPointerException
+    private AddressDAO addressDAO;
 
     @Mock
     private UserSessionService userSessionService;

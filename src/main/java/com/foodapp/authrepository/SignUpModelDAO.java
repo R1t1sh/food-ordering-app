@@ -8,7 +8,7 @@ import com.foodapp.authmodels.SignUpModel;
 
 @Repository
 public interface SignUpModelDAO extends JpaRepository<SignUpModel, Integer> {
-	
+
 	Optional<SignUpModel> findByUserName(String userName);
 
 }

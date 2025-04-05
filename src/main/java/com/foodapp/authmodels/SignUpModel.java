@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Table(name="users")
 @Entity
 public class SignUpModel {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
