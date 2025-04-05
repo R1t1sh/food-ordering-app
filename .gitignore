@@ -1,0 +1,20 @@
+# Ignore build files
+target/
+*.class
+*.log
+*.jar
+*.war
+
+# IDE and system
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+application.properties
+application.yml

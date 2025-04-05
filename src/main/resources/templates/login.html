@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+
+</head>
+<form method="POST" onsubmit="event.preventDefault(); loginUser();">
+    <label for="userName">Username:</label>
+    <input type="text" id="userName" name="userName" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<button onclick="logoutUser()" style="margin-top: 10px; display: none;" id="logoutBtn">Logout</button>
+
+<script>
+async function loginUser() {
+    const response = await fetch('/auth/login', {  // ✅ Use relative path
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            userName: document.getElementById('userName').value,
+            password: document.getElementById('password').value
+        })
+    });
+
+    const result = await response.json();
+    if (result.message.includes("Login Successful")) {
+        localStorage.setItem("sessionKey", result.sessionKey);
+        document.getElementById("logoutBtn").style.display = "block";
+    }
+
+    alert(result.message);
+}
+
+async function logoutUser() {
+    const sessionKey = localStorage.getItem("sessionKey");
+    if (!sessionKey) {
+        alert("No session found!");
+        return;
+    }
+
+    const response = await fetch("/auth/logout", {  // ✅ Use relative path
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionKey })
+    });
+
+    const result = await response.json();
+    alert(result.message);
+    localStorage.removeItem("sessionKey");
+    document.getElementById("logoutBtn").style.display = "none";
+    location.reload();
+}
+</script>

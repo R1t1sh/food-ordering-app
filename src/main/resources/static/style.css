@@ -1,0 +1,71 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 350px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 5px;
+    margin-right:3px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background: #1abc9c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #16a085;
+}
+
+#logoutBtn {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}
