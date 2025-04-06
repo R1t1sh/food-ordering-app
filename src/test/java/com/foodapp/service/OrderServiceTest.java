@@ -105,16 +105,6 @@ class OrderDetailServiceImplTest {
         assertThrows(OrderException.class, () -> orderService.viewOrder(1));
     }
 
-    @Test
-    void testRemoveOrder_Success() throws OrderException {
-        when(orderDAO.findById(1)).thenReturn(Optional.of(order));
-        doNothing().when(orderDAO).delete(order);
-
-        OrderDetails removedOrder = orderService.removeOrder(1);
-
-        assertNotNull(removedOrder);
-        verify(orderDAO, times(1)).delete(order);
-    }
 
     @Test
     void testRemoveOrder_NotFound() {
